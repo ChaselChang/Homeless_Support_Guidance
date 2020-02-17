@@ -1,0 +1,29 @@
+Borough,Facility Name,Street Address,City,State,Post Code,Phone Number(s),Comments,Latitude,Longitude,Community Board,Council District ,Census Tract,BIN,BBL,NTA
+Bronx,Concourse,1365 Jerome Avenue,Bronx,NY,10452,929 252-8991,,40.839604,-73.918421,4,16,219,2008289,2028560020,Highbridge
+Bronx,Crotona,1910 Monterey Avenue,Bronx,NY,10457,929-252-7310 | 929-252-7308,,40.846932,-73.895099,6,15,37504,2011826,2030600032,East Tremont
+Bronx,Fordham,2541-2549 Bainbridge Avenue,Bronx,NY,10458,929 252-3331,,40.862345,-73.89335,7,15,39901,2016777,2032930008,Bedford Park-Fordham North
+Bronx,Rider,300 Canal Place,Bronx,NY,10451,718-742-3924,,40.813153,-73.927579,1,8,51,2000978,2023400072,Mott Haven-Port Morris
+Bronx,Hunts Point,847 Barretto Street,Bronx,NY,10474,929-252-4350 | 929-252-4349,,40.817689,-73.890379,2,17,93,2005939,2027390015,Hunts Point
+Bronx,Family Services Call Center Bronx Satellite,847 Barretto Street,Bronx,NY,10474,929-252-4269 | 718-883-8296,Primarily handles face to face recertification and emergency walk-in activities for the Family Call Center’s active child only cases,40.817689,-73.890379,2,17,93,2005939,2027390015,Hunts Point
+Brooklyn,Veterans' Service Center,"25 Chapel Street, 6th Fl., Room 606",Brooklyn,NY,11201,718-473-8313 | 718-222-2430,Primarily services cash assistance recipient cases in which at least one household member is a Veteran.,40.697254,-73.986015,2,33,13,3335884,3001180006,DUMBO-Vinegar Hill-Downtown Brooklyn-Boerum Hill
+Brooklyn,Dekalb,275 Bergen Street,Brooklyn,NY,11217,718-636-2495 | 929-221-0643,,40.683749,-73.982816,2,33,39,3335918,3001970028,DUMBO-Vinegar Hill-Downtown Brooklyn-Boerum Hill
+Brooklyn,Bushwick,30 Thornton Street,Brooklyn,NY,11206,212-331-4289 | 212-331-4280,,40.701103,-73.94354,1,33,507,3061504,3022760012,Bedford
+Brooklyn,Coney Island,3050 West 21st Street,Brooklyn,NY,11224,929-221-3856 | 929-221-3867,,40.57353,-73.987448,13,47,352,3189654,3070710123,Seagate-Coney Island
+Brooklyn,Southern Brooklyn,35 Fourth Avenue,Brooklyn,NY,11217,929-252-3514 | 929-252-3512,,40.683419,-73.97898,6,9,12901,3018375,3009280001,Park Slope-Gowanus
+Brooklyn,"Family Services Call Center, Brooklyn Satellite","404 Pine Street, 3rd Fl.",Brooklyn,NY,11208,929-221-8265/8270 | 718-883-8296,Primarily handles face to face recertifications and emergency walk-in activities for the Family Call Center's active child only cases whose payees are not in receipt of cash assistance.,40.67588,-73.871091,5,42,1196,3094690,3042140001,East New York
+Brooklyn,Clinton Hill,495 Clermont Ave,Brooklyn,NY,11238,929-221-1568 | 929-221-2809,,40.682851,-73.968809,2,35,199,3335094,3020090001,Clinton Hill
+Manhattan,Union Square,109 E. 16th Street,New York,NY,10003,929-252-5580 | 929-252-6363,Primarily serves individuals identified as having significant barriers to employment and needing specialized services,40.735681,-73.988713,5,2,50,1017821,1008720013,Gramercy
+Manhattan,Residential Treatment Service Center,109 E. 16th Street,New York,NY,10003,929-252-5805 | 212-835-7671,,40.735681,-73.988713,5,2,50,1017821,1008720013,Gramercy
+Manhattan,Home Visit Needed/Reasonable Accommodations Request Operations,109 E. 16th Street,New York,NY,10003,929-252-6704,,40.735681,-73.988713,5,2,50,1017821,1008720013,Gramercy
+Manhattan,Waverly,12 West 14th Street,New York,NY,10011,212-620-9890 | 212-620-9224,,40.736301,-73.994342,2,3,63,1009716,1005770034,West Village
+Manhattan,St. Nicholas,132 W. 125th Street,New York,NY,10027,212-666-5678 | 212-666-5576,,40.808451,-73.947112,10,9,222,1057820,1019090012,Central Harlem South
+Manhattan,"Family Services Call Center, Manhattan Satellite",132 W. 125th Street,New York,NY,10027,212-666-7566 | 718-883-8296,,40.808451,-73.947112,10,9,222,1057820,1019090012,Central Harlem South
+Manhattan,East End,2322 Third Avenue,New York,NY,10035,212-860-2749 | 212-860-6801,,40.804468,-73.935267,11,9,242,1054497,1017750033,East Harlem North
+Manhattan,Dyckman,4055 10th Avenue,New York,NY,10034,212-569-9627 | 212-569-9626,,40.870388,-73.914561,12,10,299,1064513,1022130001,Marble Hill-Inwood
+Queens,Jamaica,165-08 88th Avenue,Queens,NY,11432,718-523-2146 | 718-883-8250,,40.708661,-73.796703,12,27,460,4210062,4098150056,Jamaica
+Queens,Family Service Call Center,165-08 88th Avenue 5th Fl.,Queens,NY,11432,718-752-3937 | 718-883-8296,Primarily a mail and phone operation servicing active child only cases whose payees are not in receipt of cash assistance,40.708661,-73.796703,12,27,460,4210062,4098150056,Jamaica
+Queens,Rockaway,219 Beach 59th Street,Queens,NY,11692,718-637-2144 | 718-637-2140,,40.592902,-73.789051,14,31,964,4301932,4159000008,Hammels-Arverne-Edgemere
+Queens,Queens,"32-20 Northern Blvd, 5th Floor",Queens,NY,11101,718-784-6043,,40.75197,-73.931799,1,26,171,4003105,4002147501,Hunters Point-Sunnyside-West Maspeth
+Queens,Refugee and Immigrant Service Center,"32-20 Northern Boulevard, Long Island City",Queens,NY,11101,929-221-4902,,40.75197,-73.931799,1,26,171,4003105,4002147501,Hunters Point-Sunnyside-West Maspeth
+Queens,"Family Services Call Center, Queens Satellite","32-20 Northern Boulevard, Long Island City",Queens,NY,11101,718-752-3937| 718-883-8296,Primarily handles face to face recertifications and emergency walk-in activities for the Family Call Center's active child only cases whose payees are not in receipt of cash assistance,40.75197,-73.931799,1,26,171,4003105,4002147501,Hunters Point-Sunnyside-West Maspeth
+Staten Island,Richmond,201 Bay Street,Staten Island,NY,10301,718-556-7343 | 718-390-5103,,40.636992,-74.076212,1,49,21,5013238,5004970009,Stapleton-Rosebank
