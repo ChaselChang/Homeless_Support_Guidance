@@ -8,8 +8,26 @@
 #
 
 library(shiny)
-
-
+library(leaflet)
+library(data.table)
+library(plotly)
+library(shinythemes)
+library(shinyWidgets)
+shinyUI
+(
+  div
+  (id = 'canvas',
+    navbarPage
+    (strong("Are Children Living in Danger?",style="color: white;"), 
+      theme=shinytheme("cerulean"),
+      tabPanel('Map',
+               div(class="outer",
+                   leafletOutput("map",width="100%",height=700),
+               )
+      )
+    )
+  )
+)
 # MAP
 
 # JW

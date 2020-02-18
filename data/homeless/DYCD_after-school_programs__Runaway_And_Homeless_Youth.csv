@@ -1,14 +1,13 @@
-PROGRAM TYPE,PROGRAM,SITE NAME,BOROUGH / COMMUNITY,AGENCY,Contact Number,Grade Level / Age Group ,Location 1,Number and Street Address,Postcode,Latitude,Longitude,Community Board,Council District ,Census Tract,BIN,BBL,NTA
-Runaway & Homeless Youth,Transitional Independent Living (TIL),"Girls Educational & Mentoring Services, Inc.",Manhattan,"Girls Educational & Mentoring Services, Inc.",212.926.8089 ext. 25,,,,10039,,,,,,,,
-Runaway & Homeless Youth,Transitional Independent Living (TIL),Good Shepherd Services,Manhattan,Good Shepherd Services,646.485.6900,,,,10011,,,,,,,,
-Runaway & Homeless Youth,Transitional Independent Living (TIL),Green Chimneys,Manhattan,Green Chimneys,212.491.5911 ext. 13,,,,10038,,,,,,,,
-Runaway & Homeless Youth,Transitional Independent Living (TIL),Inwood House,Manhattan,Inwood house,212.861.4325,,,,10065,,,,,,,,
-Runaway & Homeless Youth,Transitional Independent Living (TIL),Rachel's Place,Brooklyn,Rachel's Place,718.253.5364,,,,11234,,,,,,,,
-Runaaway & Homeless Youth Transitional Independent Living,,"Safe Space NYC, Inc",Queens,"Safe Space NYC, Inc",718.526.3000,,,,11433,,,,,,,,
-Runaway & Homeless Youth,Transitional Independent Living (TIL),SCO Family of Services,Brooklyn,SCO Family of Services,718.827.8465,,,,11208,,,,,,,,
-Runaway & Homeless Youth,Transitional Independent Living (TIL),SCO Family of Services,Brooklyn,SCO Family of Services,718.782.0198,,,,11211,,,,,,,,
-Runaway & Homeless Youth,Transitional Independent Living (TIL),SCO Family of Services,Brooklyn,SCO Family of Services,718.326.5931,,,,11221,,,,,,,,
-Runaaway & Homeless Youth Transitional Independent Living,,SCO Family of Services IV,Queens,SCO Family of Services,718.217.5613,,,,11429,,,,,,,,
+PROGRAM TYPE,PROGRAM,NAME,BOROUGH / COMMUNITY,AGENCY,Contact Number,Grade Level / Age Group ,Location 1,Number and Street Address,Postcode,Latitude,Longitude,Community Board,Council District ,Census Tract,BIN,BBL,NTA
+Runaway & Homeless Youth,Transitional Independent Living (TIL),"Girls Educational & Mentoring Services, Inc.",Manhattan,"Girls Educational & Mentoring Services, Inc.",212.926.8089 ext. 25,,,,10039,40.823792,-73.937964,,,,,,
+Runaway & Homeless Youth,Transitional Independent Living (TIL),Good Shepherd Services,Manhattan,Good Shepherd Services,646.485.6900,,,,10001,40.746621,-73.993357,,,,,,
+Runaway & Homeless Youth,Transitional Independent Living (TIL),Green Chimneys,Manhattan,Green Chimneys,212.491.5911 ext. 13,,,,10038,40.839666,-73.938614,,,,,,
+Runaway & Homeless Youth,Transitional Independent Living (TIL),Inwood House,Manhattan,Inwood house,212.861.4325,,,,10065,40.774667,-73.952741,,,,,,
+Runaaway & Homeless Youth Transitional Independent Living,,"Safe Space NYC, Inc",Queens,"Safe Space NYC, Inc",718.526.3000,,,,11433,40.757912,-73.989558,,,,,,
+Runaway & Homeless Youth,Transitional Independent Living (TIL),SCO Family of Services,Brooklyn,SCO Family of Services,718.827.8465,,,,11208,40.684079,-73.909232,,,,,,
+Runaway & Homeless Youth,Transitional Independent Living (TIL),SCO Family of Services,Brooklyn,SCO Family of Services,718.782.0198,,,,11211,40.709081,-73.965345,,,,,,
+Runaway & Homeless Youth,Transitional Independent Living (TIL),SCO Family of Services,Brooklyn,SCO Family of Services,718.326.5931,,,,11221,40.699221,-73.926215,,,,,,
+Runaaway & Homeless Youth Transitional Independent Living,,SCO Family of Services IV,Queens,SCO Family of Services,718.217.5613,,,,11429,40.712766,-73.744664,,,,,,
 Runaway & Homeless Youth,Drop-In Center,SCO Drop In Center,Brooklyn,SCO Family of Services,718.384.7083,,"89 10th Street
 Brooklyn, NEW YORK 11221
 (40.672140908347, -73.994183928581)",89 South 10th Street,11221,40.708154,-73.965482,1,33,547,3059666,3021460015,North Side-South Side                                                      
@@ -26,7 +25,7 @@ Bronx, NEW YORK 10455
 (40.815410316439, -73.916173136181)",448 East 149th Street,10455,40.815377,-73.916026,1,8,43,2000538,2022930053,Mott Haven-Port Morris                                                     
 Runaway & Homeless Youth,Crisis Shelter,Ali Forney Center,Brooklyn,Ali Forney Center,212.206.0574,,"241 Taffee Place
 Brooklyn, NEW YORK 11205
-(40.691595783202, -73.959639288816)",241 Taffee Place,11205,,,,,,,,
+(40.691595783202, -73.959639288816)",241 Taffee Place,11205,40.810858,-73.952138,,,,,,
 Runaway & Homeless Youth,Drop-In Center,Seamans Society for Children and Families ,Staten Island,Seamans Society for Children and Families,718.447.7740 ext. 248,,"50 Bay Street Staten Island
 NEW YORK 10301
 (40.639476445583, -74.073315295103)",50 Bay Street,10301,40.640901,-74.075766,1,49,3,5000034,5000050099,West New Brighton-New Brighton-St. George                                  
@@ -44,7 +43,7 @@ Manhattan, NEW YORK 10019
 (40.765275890612, -73.989246802283)",427 West 52nd Street,10019,40.765146,-73.988982,4,3,133,1080953,1010620017,Clinton                                                                    
 Runaway & Homeless Youth,Drop-In Center,"Safe Space NYC, Inc",Queens,"Safe Space NYC, Inc",718.526.2400,,"89 31
 Queens, NEW YORK 11432
-(40.71311535449, -73.792820999789)",89-31 161St ,11432,,,,,,,,
+(40.71311535449, -73.792820999789)",89-31 161St ,11432,40.704742,-73.798096,,,,,,
 Runaway & Homeless Youth Sreeet Outreach,Street Outreach,Greenwich Village Youth Council,Manhattan,Greenwich Village Youth Council,646.209.1264,,"2273 3rd Avenue
 Manhattan, NEW YORK 10037
 (40.813297761083, -73.937282525568)",2273 3rd Avenue,10037,40.802707,-73.93653,11,8,194,1054659,1017880050,East Harlem North                                                          
