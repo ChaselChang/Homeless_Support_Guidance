@@ -18,9 +18,8 @@ library(leaflet.extras)
 library(ggmap)
 library(tidyverse)
 
-# MAP
+load("../output/homeless.Rdata")
 
-# JW
 free_condom <- read_csv('C:\\Users\\Dr.FlyOnBeD\\Dropbox\\CU_LIFE\\Applied_Data_Science\\Spring2020-Project2-group-5\\data\\homeless\\NYC_Condom_Availability_Program_-_HIV_condom_distribution_locations.csv')
 drop_in <- read_csv('C:\\Users\\Dr.FlyOnBeD\\Dropbox\\CU_LIFE\\Applied_Data_Science\\Spring2020-Project2-group-5\\data\\homeless\\Directory_Of_Homeless_Drop-_In_Centers.csv')
 job_center <- read_csv('C:\\Users\\Dr.FlyOnBeD\\Dropbox\\CU_LIFE\\Applied_Data_Science\\Spring2020-Project2-group-5\\data\\homeless\\Directory_Of_Job_Centers.csv')
@@ -40,21 +39,24 @@ shinyServer(function(input, output,session){
       addMarkers(~Longitude, ~Latitude,
                  group = "free_condom" ,
                  options = marker_opt,  
-                 icon = list(iconUrl = 'https://cdn2.vectorstock.com/i/1000x1000/47/76/kids-icon-happy-boy-and-girl-children-silhouettes-vector-9674776.jpg'
+                 icon = list(iconUrl = 'https://cdn0.iconfinder.com/data/icons/objects-icons/110/Condom-512.png'
                              ,iconSize = c(25,25)))
     
     leafletProxy("map", data = drop_in) %>%
       addMarkers(~Longitude, ~Latitude,
                  group = "drop_in" ,
-                 options = marker_opt,  
-                 icon = list(iconUrl = 'https://cdn3.iconfinder.com/data/icons/school-pack-3-1/512/5-512.png'
+                 options = marker_opt,  popup = ~ paste0("<b>",Name,"</b>" ,
+                                                         "<br/>", "Address: ", Address, 
+                                                         " ",Postcode) , 
+                 label = ~ Name,
+                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/unigrid-finance-vol-3/60/014_house_home_insurance_keep_safe_hands_secure_protection-512.png'
                              ,iconSize = c(25,25)))
     
     leafletProxy("map", data = job_center) %>%
       addMarkers(~Longitude, ~Latitude,
                  group = "job_center" ,
                  options = marker_opt,  
-                 icon = list(iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/512px-Closed_Book_Icon.svg.png'
+                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/job-3/512/9-512.png'
                              ,iconSize = c(25,25)))
     m
   

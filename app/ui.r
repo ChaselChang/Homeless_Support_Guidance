@@ -14,9 +14,6 @@ library(plotly)
 library(shinythemes)
 library(shinyWidgets)
 
-# MAP
-
-# JW
 shinyUI
 (
   div
