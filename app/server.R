@@ -122,7 +122,7 @@ shinyServer(function(input, output,session){
                                                         "<br/>", "Address: ", Address, 
                                                         " ",Zip.Code), 
                  label = ~ Name,
-                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/medical-kit-2-flat-style/128/Medical_Kit_2_-_Flat_Style_-_18_-_1-39-512.png'
+                 icon = list(iconUrl = 'https://cdn2.iconfinder.com/data/icons/design-flat-business/80/Creatif_Worker-512.png'
                              ,iconSize = c(25,25)))
     
     leafletProxy("map", data = Health_Insurance) %>%
@@ -134,7 +134,7 @@ shinyServer(function(input, output,session){
                                                         "<br/>", "Address: ", Address, 
                                                         " ",Zip.Code), 
                  label = ~ Name,
-                 icon = list(iconUrl = 'https://cdn2.iconfinder.com/data/icons/design-flat-business/80/Creatif_Worker-512.png'
+                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/medical-kit-2-flat-style/128/Medical_Kit_2_-_Flat_Style_-_18_-_1-39-512.png'
                              ,iconSize = c(25,25)))
     m
   
@@ -152,7 +152,7 @@ shinyServer(function(input, output,session){
     else{leafletProxy("map") %>% hideGroup("food_stamp")}
     if("After School Program" %in% input$enable_markers) leafletProxy("map") %>% showGroup("after_school")
     else{leafletProxy("map") %>% hideGroup("after_school")}
-    if("Health_Insurance" %in% input$enable_markers) leafletProxy("map") %>% showGroup("Health_Insurance")
+    if("Health Insurance" %in% input$enable_markers) leafletProxy("map") %>% showGroup("Health_Insurance")
     else{leafletProxy("map") %>% hideGroup("Health_Insurance")}
   }, ignoreNULL = FALSE)
   
@@ -167,7 +167,8 @@ observe({
     bronx
   })
 })
-  
+
+
 })
 
 

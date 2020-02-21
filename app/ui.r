@@ -41,9 +41,9 @@ shinyUI
                                         
                           checkboxGroupInput("enable_markers", "Homeless Resources:",
                                           choices = c("Free Condom","Drop-In Center","Job Center", 
-                                                      "Food Stamp Center", "After School Program","Health_insurance"),
+                                                      "Food Stamp Center", "After School Program","Health Insurance"),
                                           selected = c("Drop-In Center","Job Center", 
-                                                       "Food Stamp Center", "After School Program","Health_insurance")),
+                                                       "Food Stamp Center", "After School Program","Health Insurance")),
                       
                           selectizeInput("boro1", "Choose the Borough",
                                      choices = c("Choose Boro(s)" = "",
