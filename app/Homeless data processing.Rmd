@@ -1,0 +1,30 @@
+---
+title: "data_processing"
+author: "Kaiqi Wang"
+date: "2/18/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Step 1 - Load the data to be cleaned and processed
+
+```{r}
+# load homeless data
+Homebase_Centers<-read.csv('../data/homeless/Directory_Of_Homebase_Locations.csv') 
+after_school_programs<-read.csv('../data/homeless/DYCD_after-school_programs__Runaway_And_Homeless_Youth.csv') 
+Health_Insurance<-read.csv('../data/homeless/Primary_Care_Access_and_Planning_-_Health_Insurance_Enrollment.csv') 
+Job_Centers<-read.csv('../data/homeless/Directory_Of_Job_Centers.csv') 
+condom_distribution<-read.csv('../data/homeless/NYC_Condom_Availability_Program_-_HIV_condom_distribution_locations.csv') 
+Food_Stamp_Centers<-read.csv('../data/homeless/Directory_of_Food_Stamp_Centers.csv')
+radar <- read.csv('../data/homeless/radar.csv')
+```
+
+
+```{r export data}
+save(Homebase_Centers,Food_Stamp_Centers,after_school_programs,Health_Insurance,Job_Centers,condom_distribution, file="../app/homeless.RData")
+```
+
+The final processed data is ready to be used for any kind of analysis.

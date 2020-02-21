@@ -1,4 +1,4 @@
-﻿Provider,Service Area Zip Code,Address,Phone Number,Postcode,Borough,Latitude,Longitude,Community Board,Council District,Census Tract,BIN,BBL,NTA
+Name,Service Area Zip Code,Address,Contact,Zip Code,Borough,Latitude,Longitude,Community Board,Council District,Census Tract,BIN,BBL,NTA
 ARCHNY I,"10462, 10472, 10473, 10474","2155 Blackrock Ave, 1st fl",718-414-1050,10472,BRONX,40.828869,-73.851791,209,18,78,2119153,2038080038,Westchester-Unionport
 ARCHNY I,"10462, 10472, 10473, 10474","890 Garrison Ave, LL",929-259-9430,10474,BRONX,40.817286,-73.89184,202,17,93,2005939,2027390015,Hunts Point
 ARCHNY II,"10461, 10464, 10465, 10466, 10469, 10475","4377 Bronx Boulevard, 3rd fl",347-947-3920,10466,BRONX,40.899174,-73.85825,212,11,418,2097441,2050350034,Woodlawn-Wakefield
