@@ -20,19 +20,42 @@ shinyUI
   (id = 'canvas',
       
   navbarPage
-    (strong("Homeless needs help?",style="color: white;"), 
-             theme=shinytheme("cerulean"),
+    (windowTitle = "NYC Homeless",
+      title = div(img(src="NYC.jpg",height = 30,
+                      width = 50), "Homeless"), 
+      id="gra", theme = shinytheme("journal"),
              
-             tabPanel('Map',
+             tabPanel("Homeless Resource Guide", icon = icon("map-pin"),
+                      tags$style(".outer {position: fixed; top: 41px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 0}"),
                       div(class="outer",
-                      leafletOutput("map",width="100%",height=700),
+                          tags$head(
+                            # Include our custom CSS
+                            includeCSS("styles.css"),
+                            includeScript("gomap.js")
+                          ),
+                          leafletOutput("map", width = "100%", height = "100%"),
+                          
+                          absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
+                                        draggable = TRUE, top = 70, left = "auto", right = 20, bottom = "auto",
+                                        width = 330, height = "auto",      
+                                        
+                          checkboxGroupInput("enable_markers", "Homeless Resources:",
+                                          choices = c("Free Condom","Drop-In Center","Job Center", 
+                                                      "Food Stamp Center", "After School Program"),
+                                          selected = c("Drop-In Center","Job Center", 
+                                                       "Food Stamp Center", "After School Program")),
                       
-                      absolutePanel(id = "control", class = "panel panel-default", fixed = TRUE, draggable = TRUE,
-                                    top = 170, left = 20, right = "auto", bottom = "auto", width = 250, height = "auto",
-                                    
-                      checkboxGroupInput("enable_markers", "Homeless Resources:",
-                                          choices = c("Free Condom","Drop-In Center","Job Center"),
-                                          selected = c("Free Condom","Drop-In Center","Job Center"))
+                          selectizeInput("boro1", "Choose the Borough",
+                                     choices = c("Choose Boro(s)" = "",
+                                                 "BRONX", "BROOKLYN",
+                                                 "MANHATTAN", "QUEENS",
+                                                 "STATEN ISLAND"),
+                                     selected = c("BRONX"),
+                                     multiple = T),
+                          
+                          plotlyOutput("boroplot", height = 280)
+                      
+                      
                       )
                 )
              )

@@ -13,18 +13,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 # load homeless data
-Drop_In_Centers<-read.csv('../data/homeless/Directory_Of_Homeless_Drop-_In_Centers.csv') 
-Runaway_Homeless_Youth<-read.csv('../data/homeless/DYCD RHY (Runaway and Homeless Youth) Services.csv') 
-Toilet<-read.csv('../data/homeless/dot_Automatic_Public_Toilets_20180918.csv') 
+Homebase_Centers<-read.csv('../data/homeless/Directory_Of_Homebase_Locations.csv') 
 after_school_programs<-read.csv('../data/homeless/DYCD_after-school_programs__Runaway_And_Homeless_Youth.csv') 
 Health_Insurance<-read.csv('../data/homeless/Primary_Care_Access_and_Planning_-_Health_Insurance_Enrollment.csv') 
 Job_Centers<-read.csv('../data/homeless/Directory_Of_Job_Centers.csv') 
 condom_distribution<-read.csv('../data/homeless/NYC_Condom_Availability_Program_-_HIV_condom_distribution_locations.csv') 
+Food_Stamp_Centers<-read.csv('../data/homeless/Directory_of_Food_Stamp_Centers.csv')
 ```
 
 
 ```{r export data}
-save(Drop_In_Centers,Runaway_Homeless_Youth,Toilet,after_school_programs,Health_Insurance,Job_Centers,condom_distribution, file="../output/homeless.RData")
+save(Homebase_Centers,Food_Stamp_Centers,after_school_programs,Health_Insurance,Job_Centers,condom_distribution, file="../app/homeless.RData")
 ```
 
 The final processed data is ready to be used for any kind of analysis.

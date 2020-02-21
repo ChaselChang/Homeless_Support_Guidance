@@ -18,44 +18,112 @@ library(leaflet.extras)
 library(ggmap)
 library(tidyverse)
 
-load("../output/homeless.Rdata")
+load("../app/homeless.Rdata")
 
-free_condom <- read_csv('C:\\Users\\Dr.FlyOnBeD\\Dropbox\\CU_LIFE\\Applied_Data_Science\\Spring2020-Project2-group-5\\data\\homeless\\NYC_Condom_Availability_Program_-_HIV_condom_distribution_locations.csv')
-drop_in <- read_csv('C:\\Users\\Dr.FlyOnBeD\\Dropbox\\CU_LIFE\\Applied_Data_Science\\Spring2020-Project2-group-5\\data\\homeless\\Directory_Of_Homeless_Drop-_In_Centers.csv')
-job_center <- read_csv('C:\\Users\\Dr.FlyOnBeD\\Dropbox\\CU_LIFE\\Applied_Data_Science\\Spring2020-Project2-group-5\\data\\homeless\\Directory_Of_Job_Centers.csv')
+radar <- read.csv("E:\\radar\\radar.csv")
 
+bronx <- plot_ly(
+  type = 'scatterpolar',
+  r = as.numeric(radar %>% dplyr::filter(Borough == "Bronx") %>% select(-"Borough")),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+bronx
+
+blank <- plot_ly(
+  type = 'scatterpolar',
+  r = c(0, 0, 0, 0, 0, 0),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+blank
 register_google(key = "AIzaSyAXxi_jjBKmoortYOFU1WeenatppEgJgdc")
 marker_opt <- markerOptions(opacity = 0.7, riseOnHover = TRUE)
 shinyServer(function(input, output,session){
   output$map <- renderLeaflet({
     m <- leaflet() %>%
+      addTiles() %>%
       addProviderTiles("CartoDB.Positron", 
                        options = providerTileOptions(noWrap = TRUE)) %>%
-      setView(-73.9252853,40.7910694,zoom = 13) %>%
+      setView(-73.9252853,40.7910694,zoom = 12) %>%
       addResetMapButton()
     
     
-    leafletProxy("map", data = free_condom) %>%
+    leafletProxy("map", data = condom_distribution) %>%
       addMarkers(~Longitude, ~Latitude,
                  group = "free_condom" ,
-                 options = marker_opt,  
+                 options = marker_opt, popup = ~ paste0("<b>",Name,"</b>" ,
+                                                        "<br/>", "Borough: ", Address,
+                                                        "<br/>", "Contact: ", Contact,
+                                                        "<br/>", "Address: ", Address, 
+                                                        " ",Zip.Code),  
+                 label = ~ Name,
                  icon = list(iconUrl = 'https://cdn0.iconfinder.com/data/icons/objects-icons/110/Condom-512.png'
                              ,iconSize = c(25,25)))
     
-    leafletProxy("map", data = drop_in) %>%
+    leafletProxy("map", data = Homebase_Centers) %>%
       addMarkers(~Longitude, ~Latitude,
                  group = "drop_in" ,
                  options = marker_opt,  popup = ~ paste0("<b>",Name,"</b>" ,
+                                                         "<br/>", "Borough: ", Address,
+                                                         "<br/>", "Contact: ", Contact,
                                                          "<br/>", "Address: ", Address, 
-                                                         " ",Postcode) , 
+                                                         " ",Zip.Code) , 
                  label = ~ Name,
                  icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/unigrid-finance-vol-3/60/014_house_home_insurance_keep_safe_hands_secure_protection-512.png'
                              ,iconSize = c(25,25)))
     
-    leafletProxy("map", data = job_center) %>%
+    leafletProxy("map", data = Job_Centers) %>%
       addMarkers(~Longitude, ~Latitude,
                  group = "job_center" ,
-                 options = marker_opt,  
+                 options = marker_opt, popup = ~ paste0("<b>",Name,"</b>" ,
+                                                        "<br/>", "Borough: ", Address,
+                                                        "<br/>", "Contact: ", Contact,
+                                                        "<br/>", "Address: ", Address, 
+                                                        " ",Zip.Code), 
+                 label = ~ Name,
+                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/job-3/512/9-512.png'
+                             ,iconSize = c(25,25)))
+    
+    leafletProxy("map", data = Food_Stamp_Centers) %>%
+      addMarkers(~Longitude, ~Latitude,
+                 group = "food_stamp" ,
+                 options = marker_opt, popup = ~ paste0("<b>",Name,"</b>" ,
+                                                        "<br/>", "Borough: ", Address,
+                                                        "<br/>", "Contact: ", Contact,
+                                                        "<br/>", "Address: ", Address, 
+                                                        " ",Zip.Code), 
+                 label = ~ Name,
+                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/job-3/512/9-512.png'
+                             ,iconSize = c(25,25)))
+    
+    leafletProxy("map", data = after_school_programs) %>%
+      addMarkers(~Longitude, ~Latitude,
+                 group = "after_school" ,
+                 options = marker_opt, popup = ~ paste0("<b>",Name,"</b>" ,
+                                                        "<br/>", "Borough: ", Address,
+                                                        "<br/>", "Contact: ", Contact,
+                                                        "<br/>", "Address: ", Address, 
+                                                        " ",Zip.Code), 
+                 label = ~ Name,
                  icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/job-3/512/9-512.png'
                              ,iconSize = c(25,25)))
     m
@@ -70,7 +138,23 @@ shinyServer(function(input, output,session){
     else{leafletProxy("map") %>% hideGroup("drop_in")}
     if("Job Center" %in% input$enable_markers) leafletProxy("map") %>% showGroup("job_center")
     else{leafletProxy("map") %>% hideGroup("job_center")}
+    if("Food Stamp Center" %in% input$enable_markers) leafletProxy("map") %>% showGroup("food_stamp")
+    else{leafletProxy("map") %>% hideGroup("food_stamp")}
+    if("After School Program" %in% input$enable_markers) leafletProxy("map") %>% showGroup("after_school")
+    else{leafletProxy("map") %>% hideGroup("after_school")}
   }, ignoreNULL = FALSE)
+  
+  
+observe({
+  event <- input$boro1
+  if (is.null(event))
+    return()
+  output$boroplot <- renderPlotly({
+    #returns null if no borough selected
+    
+    bronx
+  })
+})
   
 })
 
