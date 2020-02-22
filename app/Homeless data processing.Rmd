@@ -20,11 +20,12 @@ Job_Centers<-read.csv('../data/homeless/Directory_Of_Job_Centers.csv')
 condom_distribution<-read.csv('../data/homeless/NYC_Condom_Availability_Program_-_HIV_condom_distribution_locations.csv') 
 Food_Stamp_Centers<-read.csv('../data/homeless/Directory_of_Food_Stamp_Centers.csv')
 radar <- read.csv('../data/homeless/radar.csv')
+Population<-read.csv("../data/homeless/New_York_City_Population_By_Community_Districts.csv")
 ```
 
 
 ```{r export data}
-save(Homebase_Centers,Food_Stamp_Centers,after_school_programs,Health_Insurance,Job_Centers,condom_distribution, file="../app/homeless.RData")
+save(Homebase_Centers,Food_Stamp_Centers,after_school_programs,Health_Insurance,Job_Centers,condom_distribution,radar,Population, file="../app/homeless.RData")
 ```
 
 The final processed data is ready to be used for any kind of analysis.

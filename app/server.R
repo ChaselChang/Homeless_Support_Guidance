@@ -22,11 +22,10 @@ library(tidyverse)
 library(nycgeo)
 library(sf)
 library(shinythemes)
-library(leaflet)
 library(lubridate)
 library(scales)
-
 library(tigris)
+
 load("../app/homeless.Rdata")
 
 bronx <- plot_ly(
@@ -65,19 +64,14 @@ blank
 register_google(key = "AIzaSyAXxi_jjBKmoortYOFU1WeenatppEgJgdc")
 marker_opt <- markerOptions(opacity = 0.7, riseOnHover = TRUE)
 shinyServer(function(input, output,session){
-  #############tab 2 ###############
-  
-  load("DSNY_Graffiti_Tracking.RData")
+  #############tab Heatmap ###############
 
   nhyc_cd_data <- cd_sf
   
-  my<-read.csv("../data/homeless/New_York_City_Population_By_Community_Districts.csv")
-  
-  
-  my <- my%>% 
+  Population <- Population%>% 
     mutate(borough_cd_id = as.character(borough_cd_id), borough_id = as.character(borough_id))
   
-  map_data <- geo_join(nhyc_cd_data, my, "borough_cd_id",  "borough_cd_id", how = "inner")
+  map_data <- geo_join(nhyc_cd_data, Population, "borough_cd_id",  "borough_cd_id", how = "inner")
   
   output$map2 <- renderLeaflet({
     
@@ -115,6 +109,66 @@ shinyServer(function(input, output,session){
                     layerId=~borough_cd_id,
                     #label = ~ttl_count,
                     fillColor = ~pal2(X1980.Population),
+                    color = 'grey', 
+                    fillOpacity = .6,
+                    weight = 1,
+                    dashArray = "3") %>% 
+        addProviderTiles("CartoDB.Positron") %>% 
+        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Population",
+                  position = "bottomright")
+    } else if(input$selectb == "1990s"){
+      bins2 <- c(0, 40000,80000, 120000, 140000, 180000,220000)
+      pal2 <- colorBin("Reds", domain = map_data$X1990.Population, bins = bins2)
+      popup2 = paste0('<strong>Count: </strong><br>', map_data$X1990.Population,
+                      '<br><strong>Name: </strong><br>', map_data$cd_name)
+      map_data %>%
+        st_transform(., "+init=epsg:4326") %>%
+        leaflet() %>%
+        addTiles() %>%
+        addPolygons(popup = popup2,
+                    layerId=~borough_cd_id,
+                    #label = ~ttl_count,
+                    fillColor = ~pal2(X1990.Population),
+                    color = 'grey', 
+                    fillOpacity = .6,
+                    weight = 1,
+                    dashArray = "3") %>% 
+        addProviderTiles("CartoDB.Positron") %>% 
+        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Population",
+                  position = "bottomright")
+    } else if(input$selectb == "2000s"){
+      bins2 <- c(0, 40000,80000, 120000, 140000, 180000,220000)
+      pal2 <- colorBin("Reds", domain = map_data$X2000.Population, bins = bins2)
+      popup2 = paste0('<strong>Count: </strong><br>', map_data$X2000.Population,
+                      '<br><strong>Name: </strong><br>', map_data$cd_name)
+      map_data %>%
+        st_transform(., "+init=epsg:4326") %>%
+        leaflet() %>%
+        addTiles() %>%
+        addPolygons(popup = popup2,
+                    layerId=~borough_cd_id,
+                    #label = ~ttl_count,
+                    fillColor = ~pal2(X2000.Population),
+                    color = 'grey', 
+                    fillOpacity = .6,
+                    weight = 1,
+                    dashArray = "3") %>% 
+        addProviderTiles("CartoDB.Positron") %>% 
+        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Population",
+                  position = "bottomright")
+    } else if(input$selectb == "2010s"){
+      bins2 <- c(0, 40000,80000, 120000, 140000, 180000,220000)
+      pal2 <- colorBin("Reds", domain = map_data$X2010.Population, bins = bins2)
+      popup2 = paste0('<strong>Count: </strong><br>', map_data$X2010.Population,
+                      '<br><strong>Name: </strong><br>', map_data$cd_name)
+      map_data %>%
+        st_transform(., "+init=epsg:4326") %>%
+        leaflet() %>%
+        addTiles() %>%
+        addPolygons(popup = popup2,
+                    layerId=~borough_cd_id,
+                    #label = ~ttl_count,
+                    fillColor = ~pal2(X2010.Population),
                     color = 'grey', 
                     fillOpacity = .6,
                     weight = 1,

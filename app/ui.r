@@ -30,7 +30,7 @@ shinyUI
                       width = 50), "Homeless"), 
       id="gra", theme = shinytheme("journal"),
              
-      ########2nd Panel##############
+      ########Heatmap Panel##############
       
       tabPanel("Heat Map", icon = icon("map-signs"),
                tags$style(".outer {position: fixed; top: 41px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 0}"),
@@ -48,13 +48,13 @@ shinyUI
                                  draggable = TRUE, top = 120, left = 0, right = 40, bottom = "auto",
                                  width = 400, height = "auto",
                                  br(),
-                                 radioButtons("selectb", label = strong("Layers"),
-                                              choices = list("1970s" = "1970s", "1980s" = "1980s"), 
-                                              selected = "1970s"),
+                                 radioButtons("selectb", label = strong("Age"),
+                                              choices = list("1970s" = "1970s", "1980s" = "1980s", "1990s" = "1990s", "2000s" = "2000s", "2010s" = "2010s"), 
+                                              selected = "2010s"),
                                  
                                  p(strong("Click on a community district to see the time trend of number of graffiti complaints.")),
                                  
-                                 plotOutput("month_trend", height = 280)
+                                 
                                  
                    )
                )
