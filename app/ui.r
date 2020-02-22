@@ -14,6 +14,11 @@ library(plotly)
 library(shinythemes)
 library(shinyWidgets)
 
+library(tidyverse)
+library(DataExplorer)
+library(funModeling)
+library(Hmisc)
+
 shinyUI
 (
   div
@@ -25,6 +30,37 @@ shinyUI
                       width = 50), "Homeless"), 
       id="gra", theme = shinytheme("journal"),
              
+      ########2nd Panel##############
+      
+      tabPanel("Heat Map", icon = icon("map-signs"),
+               tags$style(".outer {position: fixed; top: 41px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 0}"),
+               div(class = "outer",
+                   
+                   tags$head(
+                     # Include our custom CSS
+                     includeCSS("styles.css"),
+                     includeScript("gomap.js")
+                   ),
+                   
+                   leafletOutput("map2", width = "100%", height = "100%"),
+                   
+                   absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
+                                 draggable = TRUE, top = 120, left = 0, right = 40, bottom = "auto",
+                                 width = 400, height = "auto",
+                                 br(),
+                                 radioButtons("selectb", label = strong("Layers"),
+                                              choices = list("1970s" = "1970s", "1980s" = "1980s"), 
+                                              selected = "1970s"),
+                                 
+                                 p(strong("Click on a community district to see the time trend of number of graffiti complaints.")),
+                                 
+                                 plotOutput("month_trend", height = 280)
+                                 
+                   )
+               )
+               
+      ),
+      #############
              tabPanel("Homeless Resource Guide", icon = icon("map-pin"),
                       tags$style(".outer {position: fixed; top: 41px; left: 0; right: 0; bottom: 0; overflow: hidden; padding: 0}"),
                       div(class="outer",
