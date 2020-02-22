@@ -50,8 +50,8 @@ shinyUI
                                                  "BRONX", "BROOKLYN",
                                                  "MANHATTAN", "QUEENS",
                                                  "STATEN ISLAND"),
-                                     selected = c("BRONX"),
-                                     multiple = T),
+                                     multiple = F),
+                          p(strong("Support Rate:")),
                           
                           plotlyOutput("boroplot", height = 280)
                       

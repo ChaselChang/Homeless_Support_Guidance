@@ -24,29 +24,105 @@ library(dplyr)
 
 #Loading the required data:
 
-c <- load("data_finale.RData")
+radar <- read.csv("../data/homeless/radar.csv")
+bronx <- plot_ly(
+  type = 'scatterpolar',
+  r = as.numeric(radar %>% dplyr::filter(Borough == "Bronx") %>% select(-"Borough")),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+bronx
 
-p <- plot_ly() %>%
-  add_pie(data = crime_sex, labels = ~sex, values = ~amount,
-          name = "The Crime Victim Sex Distribution Chart",
-          marker = list(colors=c("#ff427b","#42e3ff")),
-          domain = list(row = 0, column = 0)) %>%
-  add_pie(data = crime_race, labels = ~race, values = ~ amount,
-          name = "The Crime Victim Race Distribution Chart",
-          
-          domain = list(row = 0, column = 1)) %>%
-  add_pie(data = crime_num, labels = ~type, values = ~ amount,
-          title = "The Crime Severity Distribution Chart",
-          marker = list(colors=c("#ff0000","#ff7017","#ffff00")),
-          domain = list(row = 0, column = 2)) %>%
-  layout(title = "Pie Chart Summary of Crime Data", showlegend = F,
-         grid=list(rows=1, columns=3),
-         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+brooklyn <- plot_ly(
+  type = 'scatterpolar',
+  r = as.numeric(radar %>% dplyr::filter(Borough == "Brooklyn") %>% select(-"Borough")),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+brooklyn
 
-plot_muliti_crime <-ggplot(crime_hour_boro, aes(hour, crime_weighted, color = boro)) + geom_line() +
-  ggtitle("Danger Index Per Hour in each Borough") +
-  labs (x = "Time", y = "Danger Index") +
-  theme_grey(16) +
-  theme(legend.title = element_blank())+
-  scale_x_continuous(breaks = round(seq(0, 23, by = 1),1)) 
+manha <- plot_ly(
+  type = 'scatterpolar',
+  r = as.numeric(radar %>% dplyr::filter(Borough == "Manhattan") %>% select(-"Borough")),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+manha
+
+queens <- plot_ly(
+  type = 'scatterpolar',
+  r = as.numeric(radar %>% dplyr::filter(Borough == "Queens") %>% select(-"Borough")),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+queens
+
+stateis <- plot_ly(
+  type = 'scatterpolar',
+  r = as.numeric(radar %>% dplyr::filter(Borough == "StatenIsland") %>% select(-"Borough")),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+stateis
+
+blank <- plot_ly(
+  type = 'scatterpolar',
+  r = c(0, 0, 0, 0, 0, 0),
+  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  fill = 'toself'
+) %>%
+  layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    showlegend = F
+  )
+blank

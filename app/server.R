@@ -20,49 +20,15 @@ library(tidyverse)
 
 load("../app/homeless.Rdata")
 
-radar <- read.csv("E:\\radar\\radar.csv")
-
-bronx <- plot_ly(
-  type = 'scatterpolar',
-  r = as.numeric(radar %>% dplyr::filter(Borough == "Bronx") %>% select(-"Borough")),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
-  fill = 'toself'
-) %>%
-  layout(
-    polar = list(
-      radialaxis = list(
-        visible = T,
-        range = c(0,5)
-      )
-    ),
-    showlegend = F
-  )
-bronx
-
-blank <- plot_ly(
-  type = 'scatterpolar',
-  r = c(0, 0, 0, 0, 0, 0),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
-  fill = 'toself'
-) %>%
-  layout(
-    polar = list(
-      radialaxis = list(
-        visible = T,
-        range = c(0,5)
-      )
-    ),
-    showlegend = F
-  )
-blank
+source('global.R')
 register_google(key = "AIzaSyAXxi_jjBKmoortYOFU1WeenatppEgJgdc")
 marker_opt <- markerOptions(opacity = 0.7, riseOnHover = TRUE)
 shinyServer(function(input, output,session){
   output$map <- renderLeaflet({
     m <- leaflet() %>%
       addTiles() %>%
-      addProviderTiles("CartoDB.Positron", 
-                       options = providerTileOptions(noWrap = TRUE)) %>%
+      #addProviderTiles("CartoDB.Positron", 
+                       #options = providerTileOptions(noWrap = TRUE)) %>%
       setView(-73.9252853,40.7910694,zoom = 12) %>%
       addResetMapButton()
     
@@ -76,7 +42,7 @@ shinyServer(function(input, output,session){
                                                         "<br/>", "Address: ", Address, 
                                                         " ",Zip.Code),  
                  label = ~ Name,
-                 icon = list(iconUrl = 'https://cdn0.iconfinder.com/data/icons/objects-icons/110/Condom-512.png'
+                 icon = list(iconUrl = 'https://cdn0.iconfinder.com/data/icons/pharmacy/24/condom-wrapper-512.png'
                              ,iconSize = c(25,25)))
     
     leafletProxy("map", data = Homebase_Centers) %>%
@@ -88,7 +54,7 @@ shinyServer(function(input, output,session){
                                                          "<br/>", "Address: ", Address, 
                                                          " ",Zip.Code) , 
                  label = ~ Name,
-                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/unigrid-finance-vol-3/60/014_house_home_insurance_keep_safe_hands_secure_protection-512.png'
+                 icon = list(iconUrl = 'https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/home-512.png'
                              ,iconSize = c(25,25)))
     
     leafletProxy("map", data = Job_Centers) %>%
@@ -112,7 +78,7 @@ shinyServer(function(input, output,session){
                                                         "<br/>", "Address: ", Address, 
                                                         " ",Zip.Code), 
                  label = ~ Name,
-                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/job-3/512/9-512.png'
+                 icon = list(iconUrl = 'https://cdn3.iconfinder.com/data/icons/passport-stamp-3/92/221-512.png'
                              ,iconSize = c(25,25)))
     
     leafletProxy("map", data = after_school_programs) %>%
@@ -124,7 +90,7 @@ shinyServer(function(input, output,session){
                                                         "<br/>", "Address: ", Address, 
                                                         " ",Zip.Code), 
                  label = ~ Name,
-                 icon = list(iconUrl = 'https://cdn1.iconfinder.com/data/icons/job-3/512/9-512.png'
+                 icon = list(iconUrl = 'https://cdn3.iconfinder.com/data/icons/education/512/students-512.png'
                              ,iconSize = c(25,25)))
     m
   
@@ -148,12 +114,37 @@ shinyServer(function(input, output,session){
 observe({
   event <- input$boro1
   if (is.null(event))
-    return()
-  output$boroplot <- renderPlotly({
-    #returns null if no borough selected
-    
-    bronx
-  })
+  {
+    output$boroplot <- renderPlotly({
+      blank
+    })
+  }
+  else
+  {
+    output$boroplot <- renderPlotly({
+      if (input$boro1 == 'BRONX') 
+      {
+        bronx
+      }
+      else if (input$boro1 == 'BROOKLYN') 
+      {
+        brooklyn    
+      }
+      else if (input$boro1 == 'MANHATTEN') 
+      {
+        manha  
+      }
+      else if (input$boro1 == 'QUEEN') 
+      {
+        queens
+      }
+      else
+      {
+        stateis
+      }
+      
+    })
+  }
 })
   
 })
