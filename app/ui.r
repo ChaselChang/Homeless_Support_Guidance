@@ -1,35 +1,59 @@
 library(shiny)
+library(leaflet)
+library(data.table)
+library(plotly)
+library(shinythemes)
+library(shinyWidgets)
 
 #Dashboard
 
 library(shinydashboard)
 
 dashboardPage(
-  skin = "black",
+  skin = "blue",
   dashboardHeader(title = "Resource Guidance for homeless population",
                   titleWidth = 450),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Map", tabName = "Map", icon = icon("map")),
-      menuItem("Report", tabName = "Report", icon = icon("th"))
+      menuItem("Introduction", tabName = "Introduction", icon = icon("th")),
+      menuItem("Map", tabName = "Map", icon = icon("map"))
     )
   ),
   dashboardBody(
     tabItems(
-      # Map tab content
-      tabItem(tabName = "Map",
-              h2("Map goes here")
+      # Intro tab content
+      tabItem(tabName = "Introduction",
+              h2("Introduction")
       ),
       
-      # Report tab content
-      tabItem(tabName = "Report",
-              h2("Interactive Report goes here"),
+      # Map tab content
+      tabItem(tabName = "Map",
+              h2("Public Support Resource Map and Suport Rate Assessment"),
+
               fluidRow(
-                box(plotOutput("plot1", height = 250)),
+                leafletOutput("map", width = 2050, height = 950),
                 
-                box(
-                  title = "Controls",
-                  sliderInput("slider", "Number of observations:", 1, 100, 50)
+                absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
+                              draggable = TRUE, top = 70, left = "auto", right = 20, bottom = "auto",
+                              width = 330, height = "auto",      
+                              
+                              checkboxGroupInput("enable_markers", "Homeless Resources:",
+                                                 choices = c("Free Condom","Drop-In Center","Job Center", 
+                                                             "Food Stamp Center", "After School Program"),
+                                                 selected = c("Drop-In Center","Job Center", 
+                                                              "Food Stamp Center", "After School Program")),
+                              
+                              selectizeInput("boro1", "Choose the Borough",
+                                             choices = c("Choose Boro(s)" = "",
+                                                         "BRONX", "BROOKLYN",
+                                                         "MANHATTAN", "QUEENS",
+                                                         "STATEN ISLAND"),
+                                             multiple = F),
+                              p(strong("Support Rate:")),
+                              
+                              plotlyOutput("boroplot", height = 280)
+                              
+                              
                 )
               )
       )
