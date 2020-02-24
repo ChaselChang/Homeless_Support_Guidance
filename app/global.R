@@ -24,7 +24,7 @@ library(dplyr)
 
 #Loading the required data:
 
-radar <- read.csv("../data/homeless/radar.csv")
+radar <- read.csv("../app/radar.csv")
 bronx <- plot_ly(
   type = 'scatterpolar',
   r = as.numeric(radar %>% dplyr::filter(Borough == "Bronx") %>% select(-"Borough")),

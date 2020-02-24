@@ -16,7 +16,8 @@ dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Introduction", tabName = "Introduction", icon = icon("th")),
-      menuItem("Map", tabName = "Map", icon = icon("map"))
+      menuItem("Map", tabName = "Map", icon = icon("map")),
+      menuItem("HeatMap", tabName = "HeatMap", icon = icon("heatmap"))
     )
   ),
   dashboardBody(
@@ -52,6 +53,28 @@ dashboardPage(
                               p(strong("Support Rate:")),
                               
                               plotlyOutput("boroplot", height = 280)
+                              
+                              
+                )
+              )
+      ),
+      
+      tabItem(tabName = "HeatMap",
+              h2("Public Support Resource Map and Suport Rate Assessment"),
+              
+              fluidRow(
+                leafletOutput("map2", width = 2050, height = 950),
+                
+                absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
+                              draggable = TRUE, top = 120, left = 300, right = 340, bottom = "auto",
+                              width = 400, height = "auto",
+                              br(),
+                              radioButtons("selectb", label = strong("Age"),
+                                           choices = list("1970s" = "1970s", "1980s" = "1980s", "1990s" = "1990s", "2000s" = "2000s", "2010s" = "2010s"), 
+                                           selected = "2010s"),
+                              
+                              p(strong("Click on a community district to see the time trend of number of graffiti complaints.")),
+                              
                               
                               
                 )
