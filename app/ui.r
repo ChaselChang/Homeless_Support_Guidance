@@ -15,24 +15,20 @@ dashboardPage(
                   titleWidth = 450),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Introduction", tabName = "Introduction", icon = icon("th")),
       menuItem("Map", tabName = "Map", icon = icon("map")),
-      menuItem("HeatMap", tabName = "HeatMap", icon = icon("heatmap"))
+      menuItem("HeatMap", tabName = "HeatMap", icon = icon("map")),
+      menuItem("Report", tabName = "Report", icon = icon("th"))
     )
   ),
   dashboardBody(
     tabItems(
-      # Intro tab content
-      tabItem(tabName = "Introduction",
-              h2("Introduction")
-      ),
       
       # Map tab content
       tabItem(tabName = "Map",
               h2("Public Support Resource Map and Suport Rate Assessment"),
 
               fluidRow(
-                leafletOutput("map", width = 2050, height = 950),
+                leafletOutput("map", width = "100%", height = 850),
                 
                 absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
                               draggable = TRUE, top = 70, left = "auto", right = 20, bottom = "auto",
@@ -63,7 +59,7 @@ dashboardPage(
               h2("Public Support Resource Map and Suport Rate Assessment"),
               
               fluidRow(
-                leafletOutput("map2", width = 2050, height = 950),
+                leafletOutput("map2", width = "100%", height = 850),
                 
                 absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
                               draggable = TRUE, top = 120, left = 300, right = 340, bottom = "auto",
@@ -79,6 +75,10 @@ dashboardPage(
                               
                 )
               )
+      ),
+      # Repo tab content
+      tabItem(tabName = "Report",
+              h2("Report")
       )
     )
   )
