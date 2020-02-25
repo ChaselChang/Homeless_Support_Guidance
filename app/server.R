@@ -131,11 +131,11 @@ shinyServer(function(input, output,session){
         {
           brooklyn    
         }
-        else if (input$boro1 == 'MANHATTEN') 
+        else if (input$boro1 == 'MANHATTAN') 
         {
           manha  
         }
-        else if (input$boro1 == 'QUEEN') 
+        else if (input$boro1 == 'QUEENS') 
         {
           queens
         }
