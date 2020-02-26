@@ -3,3 +3,4 @@
 
 The App directory contains the app files for the Shiny App (i.e., ui.r and server.r).
 
+"global.r" is the back-stage analysis environment.
