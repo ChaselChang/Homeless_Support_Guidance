@@ -25,17 +25,17 @@
 + **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
 All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
- 
+
 Jiadong took major responsibility in implementing the map tab and about tab, Kaiqi and Tianshu assisted him in data engineering and plotting;
- 
+
 Kaiqi took major responsibility in implementing the heat-map tab;
- 
+
 Hongshan(Aria) and Jacquelyn took major responsibility in implementing the report tab, Tianshu assisted them in UI implementations;
- 
+
 Tianshu took major responsibility in implementing the main UI structure, integrating and deploying all the works;
 
 Jacquelyn added project summary.
- 
+
 All team members contributed greatly to this work.
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
