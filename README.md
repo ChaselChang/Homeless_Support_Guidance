@@ -17,7 +17,7 @@
 
 + The Heatmap page is a heat map of homeless distribution across all five boroughs of New York City.
 
-+In our Report section, we utilized several datasets across different fields of interest from various open data web sources. The data was cleaned and prepared in R before being analyzed. The datasets includes: public facilities that are open to homeless population, homeless population distribution over time, health services for homeless, etc. As the datasets came from public resources, we believe the data to be as authentic and as accurate as possible. Interactive visualizations were made using shinyapp and plotly for R. 
++ In our Report section, we utilized several datasets across different fields of interest from various open data web sources. The data was cleaned and prepared in R before being analyzed. The datasets includes: public facilities that are open to homeless population, homeless population distribution over time, health services for homeless, etc. As the datasets came from public resources, we believe the data to be as authentic and as accurate as possible. Interactive visualizations were made using shinyapp and plotly for R. 
 
 + **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
