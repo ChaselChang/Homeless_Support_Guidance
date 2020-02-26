@@ -150,7 +150,7 @@ men in shelters than women."))),
               fluidRow(column(12, icon('Linkedin', 'fab fa-linkedin'), ( a("Linkedin",  target="_blank", href =  "https://www.linkedin.com/in/hongshan-lin/")))),
               
               h3(strong('Jacquelyn Blum')),
-              p(strong("Columbia University/ Master of Arts in Statistics")), 
+              p(strong("Columbia University/ Bachelor of Arts in Statistics")), 
               fluidRow(column(12, icon('Github','fab fa-github'), ( a("Github",  target="_blank", href =  "https://github.com/jacquelynblum")))),
               fluidRow(column(12, icon('Linkedin', 'fab fa-linkedin'), ( a("Linkedin",  target="_blank", href =  "https://www.linkedin.com/in/jblum/")))),
               )
