@@ -1,34 +1,23 @@
 # Project 2: Shiny App Development Version 2.0
 
-### [Project Description](doc/project2_desc.md)
-
-![screenshot](doc/screenshot2.png)
-
-In this second project of GR5243 Applied Data Science, we develop a version 2.0 of an *Exploratory Data Analysis and Visualization* shiny app on a topic of your choice using [NYC Open Data](https://opendata.cityofnewyork.us/) or U.S. government open data released on the [data.gov](https://data.gov/) website. See [Project 2 Description](doc/project2_desc.md) for more details.  
-
-The **learning goals** for this project are:
-
-- business intelligence for data science
-- study legacy codes and further development
-- data cleaning
-- data visualization
-- systems development/design life cycle
-- shiny app/shiny server
-
-*The above general statement about project 2 can be removed once you are finished with your project. It is optional.
-
-### NYC Department of Homeless Services Resources Application
-### Term: Fall 2019
+### Homeless Island
+### Term: Spring 2020
 
 + Team #5
-+ **NYC Department of Homeless Services Resources Application**: 
++ **Homeless Island**: 
 	+ Jiadong Wu
 	+ Tianshu Zhang
 	+ Kaiqi Wang
 	+ Hongshan (Aria) Lin
 	+ Jacquelyn Blum
 
-+ **Project summary**: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
++ **Project summary**: For this project, we utilized many different datasets from NYC Open Data and Data.gov. We will present this application and its relevant analysis to the New York City Department of Homeless Services. The application is designed to be used by sheltered and unsheltered homeless New Yorkers. With the respect to human dignity and human rights in heart, we hope the homeless population will find this application useful as they attempt to navigate the unique challenges that face them in our city. We believe that our analysis will convince the NYC DHS that they need to purchase this application and make it available for public use. 
+
++ The Map page is a resource guide map for the homeless population in New York City. It shows the location of resources: drop-in shelters, after-school programs, job centers, food stamp assistance and safe sex resources. There is also a functionality that shows the relative support rate per borough. 
+
++ The Heatmap page is a heat map of homeless distribution across all five boroughs of New York City.
+
++In our Report section, we utilized several datasets across different fields of interest from various open data web sources. The data was cleaned and prepared in R before being analyzed. The datasets includes: public facilities that are open to homeless population, homeless population distribution over time, health services for homeless, etc. As the datasets came from public resources, we believe the data to be as authentic and as accurate as possible. Interactive visualizations were made using shinyapp and plotly for R. 
 
 + **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
