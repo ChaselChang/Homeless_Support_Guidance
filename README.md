@@ -1,6 +1,9 @@
 # Project 2: Shiny App Development Version 2.0
 
 ### Homeless Island
+
+<img src="output/cover.png" width="500">
+
 ### Term: Spring 2020
 
 + Team #5
