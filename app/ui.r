@@ -85,10 +85,13 @@ dashboardPage(
                 box(plotlyOutput("plot2")),
                 box(plotlyOutput("plot3"))),
               fluidRow(
+                #box(
+                #  sliderInput("daterange", "Time",
+                #              min=as.Date("2017-4-01","%Y-%m-%d"), max=as.Date("2019-12-01","%Y-%m-%d"),value =as.Date("2018-3-01","%Y-%m-%d"),
+                #              timeFormat="%Y-%m",step=30 ),textOutput("SliderText")),
                 box(
-                  sliderInput("daterange", "Time",
-                              min=as.Date("2017-4-01","%Y-%m-%d"), max=as.Date("2019-12-01","%Y-%m-%d"),value =as.Date("2018-3-01","%Y-%m-%d"),
-                              timeFormat="%Y-%m",step=30 ),textOutput("SliderText")),
+                  dateInput("daterange", "Time",value =as.Date("2018-3-01","%Y-%m-%d"))
+                ),
                 box(
                   selectInput("boro", "Choose the Borough",
                               choices = c("Choose Boro(s)" = "",
