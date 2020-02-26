@@ -1,3 +1,13 @@
+packages.used=c("shiny", "leaflet","plotly","data.table",
+                "shinyWidgets","shinythemes","bsplus", "shinydashboard")
+packages.needed=setdiff(packages.used, 
+                        intersect(installed.packages()[,1], 
+                                  packages.used))
+
+if(length(packages.needed)>0){
+  install.packages(packages.needed, dependencies = TRUE)
+}
+
 library(shiny)
 library(leaflet)
 library(data.table)
@@ -5,13 +15,11 @@ library(plotly)
 library(shinythemes)
 library(shinyWidgets)
 library(bsplus)
-
 library(shinydashboard)
 
 dashboardPage(
   skin = "blue",
-  dashboardHeader(title = "Resource Guidance for homeless population",
-                  titleWidth = 450),
+  dashboardHeader(title = "Homeless Island"),
   dashboardSidebar(
     sidebarMenu(
       menuItem("Map", tabName = "Map", icon = icon("map")),
@@ -25,8 +33,6 @@ dashboardPage(
       
       # Map tab content
       tabItem(tabName = "Map",
-              h2("Public Support Resource Map and Suport Rate Assessment"),
-
               fluidRow(
                 leafletOutput("map", width = "100%", height = 850),
                 
@@ -54,8 +60,6 @@ dashboardPage(
       ),
       
       tabItem(tabName = "HeatMap",
-              h2("Public Support Resource Map and Suport Rate Assessment"),
-              
               fluidRow(
                 leafletOutput("map2", width = "100%", height = 850),
                 

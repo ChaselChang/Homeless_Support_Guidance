@@ -5,9 +5,9 @@ account: chasel
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1827746
-bundleId: 2813096
+bundleId: 2830716
 url: https://chasel.shinyapps.io/homeless/
-when: 1582144162.81511
+when: 1582703742.30328
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: .RData|README.md|starter_code
+ignoredFiles: .RData|README.md|www/bootstrap.css|www/gomap.js|www/styles.css

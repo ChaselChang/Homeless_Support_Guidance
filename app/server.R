@@ -1,3 +1,14 @@
+packages.used=c("shiny", "leaflet","plotly","data.table","shinyWidgets","googleVis",
+                "geosphere","leaflet.extras","shinythemes","ggmap","tidyverse", "sf", 
+                "lubridate", "scales", "tigris", "ggthemes")
+packages.needed=setdiff(packages.used, 
+                        intersect(installed.packages()[,1], 
+                                  packages.used))
+
+if(length(packages.needed)>0){
+  install.packages(packages.needed, dependencies = TRUE)
+}
+
 library(shiny)
 library(leaflet)
 library(data.table)
@@ -8,25 +19,24 @@ library(geosphere)
 library(leaflet.extras)
 library(ggmap)
 library(tidyverse)
-
-#remotes::install_github("mfherman/nycgeo")
-library(nycgeo)
+library(ggthemes)
 library(sf)
 library(shinythemes)
 library(lubridate)
 library(scales)
 library(tigris)
 
-load("./rundata/homeless.Rdata")
+## Github Package
+#remotes::install_github("mfherman/nycgeo")
+library(nycgeo)
+
+load("./rundata/homeless.RData")
 
 source('global.R')
 register_google(key = "AIzaSyAXxi_jjBKmoortYOFU1WeenatppEgJgdc")
 marker_opt <- markerOptions(opacity = 0.7, riseOnHover = TRUE)
 
 #plots
-library(ggthemes)
-library(tidyr)
-library(dplyr)
 final<-read.csv('./rundata/Final.csv')
 final$Date<-as.Date(final$Date,"%Y-%m-%d")
 todayfacility<-read.csv('./rundata/borofilicity12-31.csv')
