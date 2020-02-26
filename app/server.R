@@ -9,7 +9,6 @@ library(leaflet.extras)
 library(ggmap)
 library(tidyverse)
 
-
 #remotes::install_github("mfherman/nycgeo")
 library(nycgeo)
 library(sf)
@@ -18,25 +17,22 @@ library(lubridate)
 library(scales)
 library(tigris)
 
-load("../app/homeless.Rdata")
+load("./rundata/homeless.Rdata")
 
 source('global.R')
 register_google(key = "AIzaSyAXxi_jjBKmoortYOFU1WeenatppEgJgdc")
 marker_opt <- markerOptions(opacity = 0.7, riseOnHover = TRUE)
 
-
 #plots
 library(ggthemes)
 library(tidyr)
-#Dashboard Demo
 library(dplyr)
-final<-read.csv('Final.csv')
+final<-read.csv('./rundata/Final.csv')
 final$Date<-as.Date(final$Date,"%Y-%m-%d")
-todayfacility<-read.csv('borofilicity12-31.csv')
-facilitystyle<-read.csv('ficlitybyboropir.csv')
+todayfacility<-read.csv('./rundata/borofilicity12-31.csv')
+facilitystyle<-read.csv('./rundata/ficlitybyboropir.csv')
 
-MergedDF<-read.csv('boroughdemo.csv')
-#Dashboard Demo
+MergedDF<-read.csv('./rundata/boroughdemo.csv')
 shinyServer(function(input, output,session){
   output$map <- renderLeaflet({
     m <- leaflet() %>%
@@ -107,8 +103,6 @@ shinyServer(function(input, output,session){
                  icon = list(iconUrl = 'https://cdn3.iconfinder.com/data/icons/education/512/students-512.png'
                              ,iconSize = c(25,25)))
     m
-    
-    
   })
   
   observeEvent(input$enable_markers, {
@@ -161,7 +155,7 @@ shinyServer(function(input, output,session){
     }
   })
   
-  #############tab Heatmap ###############
+#tab heatmap
   
   nhyc_cd_data <- cd_sf
   
@@ -251,9 +245,6 @@ shinyServer(function(input, output,session){
       
     })
   })
-  ##################
-  
-
 
   dateRangeInput<-reactive({final%>%filter(Date==input$daterange)})
   output$plot2 <- renderPlotly({

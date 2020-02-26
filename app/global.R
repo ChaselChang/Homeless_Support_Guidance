@@ -19,16 +19,15 @@ library(shinythemes)
 library(ggmap)
 library(dplyr)
 
-
 #Statistics Analysis Global Enviroment 
 
 #Loading the required data:
 
-radar <- read.csv("../app/radar.csv")
+radar <- read.csv("./rundata/radar.csv")
 bronx <- plot_ly(
   type = 'scatterpolar',
   r = as.numeric(radar %>% dplyr::filter(Borough == "Bronx") %>% select(-"Borough")),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  theta = c('Homes','Job Center','Education', 'Condom', 'Primary care', 'Food stamp'),
   fill = 'toself'
 ) %>%
   layout(
@@ -45,7 +44,7 @@ bronx
 brooklyn <- plot_ly(
   type = 'scatterpolar',
   r = as.numeric(radar %>% dplyr::filter(Borough == "Brooklyn") %>% select(-"Borough")),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  theta = c('Homes','Job Center','Education', 'Condom', 'Primary care', 'Food stamp'),
   fill = 'toself'
 ) %>%
   layout(
@@ -62,7 +61,7 @@ brooklyn
 manha <- plot_ly(
   type = 'scatterpolar',
   r = as.numeric(radar %>% dplyr::filter(Borough == "Manhattan") %>% select(-"Borough")),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  theta = c('Homes','Job Center','Education', 'Condom', 'Primary care', 'Food stamp'),
   fill = 'toself'
 ) %>%
   layout(
@@ -79,7 +78,7 @@ manha
 queens <- plot_ly(
   type = 'scatterpolar',
   r = as.numeric(radar %>% dplyr::filter(Borough == "Queens") %>% select(-"Borough")),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  theta = c('Homes','Job Center','Education', 'Condom', 'Primary care', 'Food stamp'),
   fill = 'toself'
 ) %>%
   layout(
@@ -96,7 +95,7 @@ queens
 stateis <- plot_ly(
   type = 'scatterpolar',
   r = as.numeric(radar %>% dplyr::filter(Borough == "StatenIsland") %>% select(-"Borough")),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  theta = c('Homes','Job Center','Education', 'Condom', 'Primary care', 'Food stamp'),
   fill = 'toself'
 ) %>%
   layout(
@@ -113,7 +112,7 @@ stateis
 blank <- plot_ly(
   type = 'scatterpolar',
   r = c(0, 0, 0, 0, 0, 0),
-  theta = c('Home_base','Job_center','After_school', 'Condom', 'Primary_care', 'Food_stamp'),
+  theta = c('Homes','Job Center','Education', 'Condom', 'Primary care', 'Food stamp'),
   fill = 'toself'
 ) %>%
   layout(
@@ -131,7 +130,7 @@ blank
 library(tidyverse)
 library(ggplot2)
 library(viridis)
-boro <- read.csv("Directory_Of_Homeless_Population_By_Year.csv")
+boro <- read.csv("./rundata/Directory_Of_Homeless_Population_By_Year.csv")
 boro_plot <- boro[-c(6, 8, 14, 16, 22, 24, 30, 32),] %>% 
   ggplot(aes(x=Year, y=Homeless.Estimates, fill=Area, text=Area)) +
   geom_area( ) +
@@ -141,10 +140,9 @@ boro_plot <- boro[-c(6, 8, 14, 16, 22, 24, 30, 32),] %>%
 boro_plot <- ggplotly(boro_plot, tooltip="text")
 boro_plot
 
-
 ##Plot 2 - This time series plot shows the breakdown of sheltered New Yorkers - those in families with children far outnumber those in families 
 ##without children, and the number of single New Yorkers in shelters is steadily rising
-census <- read.csv("DHS_Census.csv")
+census <- read.csv("./rundata/DHS_Census.csv")
 arranged2 <- arrange(census, Date.of.Census)
 arranged2$Date.of.Census <- as.Date(arranged2$Date.of.Census, "%m/%d/%Y")
 pr <- plot_ly(arranged2, x = ~Date.of.Census) %>%
@@ -186,7 +184,7 @@ pr
 
 ##Plot 3 - This plot shows that while the number of all sheltered single New Yorkers is rising, there are many more 
 ##men in shelters than women
-malfem <- read.csv("DHS_Daily_Report.csv")
+malfem <- read.csv("./rundata/DHS_Daily_Report.csv")
 str(malfem)
 arranged3 <- arrange(malfem, Date.of.Census)
 arranged3$Date.of.Census <- as.Date(arranged3$Date.of.Census, "%m/%d/%Y")

@@ -6,8 +6,6 @@ library(shinythemes)
 library(shinyWidgets)
 library(bsplus)
 
-#Dashboard
-
 library(shinydashboard)
 
 dashboardPage(
@@ -34,7 +32,7 @@ dashboardPage(
                 
                 absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
                               draggable = TRUE, top = 70, left = "auto", right = 20, bottom = "auto",
-                              width = 330, height = "auto",      
+                              width = 370, height = "auto",      
                               
                               checkboxGroupInput("enable_markers", "Homeless Resources:",
                                                  choices = c("Free Condom","Drop-In Center","Job Center", 
@@ -51,8 +49,6 @@ dashboardPage(
                               p(strong("Support Rate:")),
                               
                               plotlyOutput("boroplot", height = 280)
-                              
-                              
                 )
               )
       ),
@@ -72,9 +68,6 @@ dashboardPage(
                                            selected = "2019_homeless"),
                               
                               p(strong("Click on a community district to see the population of homeless.")),
-                              
-                              
-                              
                 )
               )
       ),
@@ -160,32 +153,3 @@ men in shelters than women."))),
     )
   )
 )
-
-
-# MAP
-
-# JW
-
-
-
-# KW
-
-
-
-
-
-
-
-
-
-# REPORT
-
-# JB
-
-
-
-# HL
-
-
-
-# TZ
