@@ -152,18 +152,18 @@ shinyServer(function(input, output,session){
   
   nhyc_cd_data <- cd_sf
   
-  Population <- Population%>% 
+  homeless_population <- homeless_population%>% 
     mutate(borough_cd_id = as.character(borough_cd_id), borough_id = as.character(borough_id))
   
-  map_data <- geo_join(nhyc_cd_data, Population, "borough_cd_id",  "borough_cd_id", how = "inner")
+  map_data <- geo_join(nhyc_cd_data, homeless_population, "borough_cd_id",  "borough_cd_id", how = "inner")
   
   output$map2 <- renderLeaflet({
     
-    if(input$selectb == "1970s"){
-      bins <- c(0, 40000,80000, 120000, 140000, 180000,220000)
-      pal <- colorBin("Reds", domain = map_data$X1970.Population, bins = bins)
-      popup1 = paste0('<strong>Count: </strong><br>', map_data$X1970.Population,
-                      '<br><strong>Name: </strong><br>', map_data$cd_name)
+    if(input$selectb == "2019_homeless"){
+      bins <- c(0, 200,400, 600, 800, 1000,1500,2000,2500,2700)
+      pal <- colorBin("Blues", domain = map_data$X2019_homeless_population, bins = bins)
+      popup1 = paste0('<strong>Count: </strong><br>', map_data$X2019_homeless_population,
+                      '<br><strong>Borough: </strong><br>', map_data$borough)
       
       map_data %>%
         st_transform(., "+init=epsg:4326") %>%
@@ -172,19 +172,19 @@ shinyServer(function(input, output,session){
         addPolygons(popup = popup1,
                     layerId=~borough_cd_id,
                     #label = ~ttl_count,
-                    fillColor = ~pal(X1970.Population),
+                    fillColor = ~pal(X2019_homeless_population),
                     color = 'grey', 
                     fillOpacity = .6,
                     weight = 1,
                     dashArray = "3") %>% 
         addProviderTiles("CartoDB.Positron") %>% 
-        addLegend(pal = pal, values = ~bins, opacity = 0.6, title = "Number of Population",
+        addLegend(pal = pal, values = ~bins, opacity = 0.6, title = "Number of Homeless Population",
                   position = "bottomright")
-    } else if(input$selectb == "1980s"){
-      bins2 <- c(0, 40000,80000, 120000, 140000, 180000,220000)
-      pal2 <- colorBin("Reds", domain = map_data$X1980.Population, bins = bins2)
-      popup2 = paste0('<strong>Count: </strong><br>', map_data$X1980.Population,
-                      '<br><strong>Name: </strong><br>', map_data$cd_name)
+    } else if(input$selectb == "2018_homeless"){
+      bins2 <- c(0, 200,400, 600, 800, 1000,1500,2000,2500,2700)
+      pal2 <- colorBin("Blues", domain = map_data$X2018_homeless_population, bins = bins2)
+      popup2 = paste0('<strong>Count: </strong><br>', map_data$X2018_homeless_population,
+                      '<br><strong>Borough: </strong><br>', map_data$borough)
       map_data %>%
         st_transform(., "+init=epsg:4326") %>%
         leaflet() %>%
@@ -192,19 +192,19 @@ shinyServer(function(input, output,session){
         addPolygons(popup = popup2,
                     layerId=~borough_cd_id,
                     #label = ~ttl_count,
-                    fillColor = ~pal2(X1980.Population),
+                    fillColor = ~pal2(X2018_homeless_population),
                     color = 'grey', 
                     fillOpacity = .6,
                     weight = 1,
                     dashArray = "3") %>% 
         addProviderTiles("CartoDB.Positron") %>% 
-        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Population",
+        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Homeless Population",
                   position = "bottomright")
-    } else if(input$selectb == "1990s"){
-      bins2 <- c(0, 40000,80000, 120000, 140000, 180000,220000)
-      pal2 <- colorBin("Reds", domain = map_data$X1990.Population, bins = bins2)
-      popup2 = paste0('<strong>Count: </strong><br>', map_data$X1990.Population,
-                      '<br><strong>Name: </strong><br>', map_data$cd_name)
+    } else if(input$selectb == "2017_homeless"){
+      bins2 <- c(0, 200,400, 600, 800, 1000,1500,2000,2500,2700)
+      pal2 <- colorBin("Blues", domain = map_data$X2017_homeless_population, bins = bins2)
+      popup2 = paste0('<strong>Count: </strong><br>', map_data$X2017_homeless_population,
+                      '<br><strong>Borough: </strong><br>', map_data$cd_name)
       map_data %>%
         st_transform(., "+init=epsg:4326") %>%
         leaflet() %>%
@@ -212,55 +212,15 @@ shinyServer(function(input, output,session){
         addPolygons(popup = popup2,
                     layerId=~borough_cd_id,
                     #label = ~ttl_count,
-                    fillColor = ~pal2(X1990.Population),
+                    fillColor = ~pal2(X2017_homeless_population),
                     color = 'grey', 
                     fillOpacity = .6,
                     weight = 1,
                     dashArray = "3") %>% 
         addProviderTiles("CartoDB.Positron") %>% 
-        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Population",
+        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Homeless Population",
                   position = "bottomright")
-    } else if(input$selectb == "2000s"){
-      bins2 <- c(0, 40000,80000, 120000, 140000, 180000,220000)
-      pal2 <- colorBin("Reds", domain = map_data$X2000.Population, bins = bins2)
-      popup2 = paste0('<strong>Count: </strong><br>', map_data$X2000.Population,
-                      '<br><strong>Name: </strong><br>', map_data$cd_name)
-      map_data %>%
-        st_transform(., "+init=epsg:4326") %>%
-        leaflet() %>%
-        addTiles() %>%
-        addPolygons(popup = popup2,
-                    layerId=~borough_cd_id,
-                    #label = ~ttl_count,
-                    fillColor = ~pal2(X2000.Population),
-                    color = 'grey', 
-                    fillOpacity = .6,
-                    weight = 1,
-                    dashArray = "3") %>% 
-        addProviderTiles("CartoDB.Positron") %>% 
-        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Population",
-                  position = "bottomright")
-    } else if(input$selectb == "2010s"){
-      bins2 <- c(0, 40000,80000, 120000, 140000, 180000,220000)
-      pal2 <- colorBin("Reds", domain = map_data$X2010.Population, bins = bins2)
-      popup2 = paste0('<strong>Count: </strong><br>', map_data$X2010.Population,
-                      '<br><strong>Name: </strong><br>', map_data$cd_name)
-      map_data %>%
-        st_transform(., "+init=epsg:4326") %>%
-        leaflet() %>%
-        addTiles() %>%
-        addPolygons(popup = popup2,
-                    layerId=~borough_cd_id,
-                    #label = ~ttl_count,
-                    fillColor = ~pal2(X2010.Population),
-                    color = 'grey', 
-                    fillOpacity = .6,
-                    weight = 1,
-                    dashArray = "3") %>% 
-        addProviderTiles("CartoDB.Positron") %>% 
-        addLegend(pal = pal2, values = ~bins2, opacity = 0.6, title = "Number of Population",
-                  position = "bottomright")
-    }
+    } 
   })
   
   observe({

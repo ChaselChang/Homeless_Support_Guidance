@@ -65,11 +65,11 @@ dashboardPage(
                               draggable = TRUE, top = 120, left = 300, right = 340, bottom = "auto",
                               width = 400, height = "auto",
                               br(),
-                              radioButtons("selectb", label = strong("Age"),
-                                           choices = list("1970s" = "1970s", "1980s" = "1980s", "1990s" = "1990s", "2000s" = "2000s", "2010s" = "2010s"), 
-                                           selected = "2010s"),
+                              radioButtons("selectb", label = strong("Year"),
+                                           choices = list("2019_homeless" = "2019_homeless", "2018_homeless" = "2018_homeless", "2017_homeless" = "2017_homeless"), 
+                                           selected = "2019_homeless"),
                               
-                              p(strong("Click on a community district to see the time trend of number of graffiti complaints.")),
+                              p(strong("Click on a community district to see the population of homeless.")),
                               
                               
                               
