@@ -24,6 +24,19 @@ source('global.R')
 register_google(key = "AIzaSyAXxi_jjBKmoortYOFU1WeenatppEgJgdc")
 marker_opt <- markerOptions(opacity = 0.7, riseOnHover = TRUE)
 
+
+#plots
+library(ggthemes)
+library(tidyr)
+#Dashboard Demo
+library(dplyr)
+final<-read.csv('Final.csv')
+final$Date<-as.Date(final$Date,"%Y-%m-%d")
+todayfacility<-read.csv('borofilicity12-31.csv')
+facilitystyle<-read.csv('ficlitybyboropir.csv')
+
+MergedDF<-read.csv('boroughdemo.csv')
+#Dashboard Demo
 shinyServer(function(input, output,session){
   output$map <- renderLeaflet({
     m <- leaflet() %>%
@@ -235,36 +248,51 @@ shinyServer(function(input, output,session){
         return(NULL)
       }
       
-  
+      
     })
   })
   ##################
   
+
+
+  dateRangeInput<-reactive({final%>%filter(Date==input$daterange)})
+  output$plot2 <- renderPlotly({
+    plot_ly(data=dateRangeInput(),x=~Borough,y=~Individuals, type = "bar",text=~Individuals,textposition = 'auto')
+  })
+  BoroInput<-reactive({final%>%filter(Borough==input$boro)})
+  output$plot3<-renderPlotly({
+    plot_ly(data=BoroInput(), x = ~Date, y = ~Individuals, type = 'scatter', mode = 'lines',text=~Borough,textposition = 'auto') %>%
+      layout(title = 'New York Homeless Population timeseries graph by Borough',
+             xaxis = list(title = ""),
+             yaxis = list(side = 'left', title = 'Number of people in thousand', showgrid = FALSE, zeroline = FALSE))
+  })
+  output$plot4<-renderPlotly({MergedDF %>% 
+      plot_ly() %>%
+      add_trace(x = ~Borough, y = ~Population1, type = 'bar', 
+                text = ~Population, textposition = 'auto',
+                marker = list(color = 'rgb(158,202,225)',
+                              line = list(color = 'rgb(8,48,107)', width = 1.5))) %>%
+      add_trace(x = ~Borough, y = ~Individuals1, type = 'bar', 
+                text = ~Individuals, textposition = 'auto',
+                marker = list(color = 'rgb(43,200,225)',
+                              line = list(color = 'rgb(8,48,107)', width = 1.5)))%>%
+      add_trace(x = ~Borough, y = ~total1, type = 'bar', 
+                text = ~total, textposition = 'auto',
+                marker = list(color = 'rgb(49,130,189)',
+                              line = list(color = 'rgb(8,48,107)', width = 1.5))) %>%
+      layout(title = "Proportion of Total Population, Homeless Population, Facility by Borough",
+             barmode = 'group',
+             xaxis = list(title = ""),
+             yaxis = list(title = ""))
+  })
+  BoroInputp<-reactive({facilitystyle%>%filter(Borough==input$boro)})
+  output$plot5<-renderPlotly({
+    plot_ly(data=BoroInputp(), labels =~Facility, values = ~Number, type = 'pie') %>%
+      layout(title = 'NYC Borough facility Pie Graph',
+             xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+             yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+  })
+  output$plotj1<-renderPlotly(pr)
+  output$plotj2<-renderPlotly(boro_plot)
+  output$plotj3<-renderPlotly(po)
 })
-# MAP
-
-# JW
-
-
-
-# KW
-
-
-
-
-
-
-
-
-
-# REPORT
-
-# JB
-
-
-
-# HL
-
-
-
-# TZ
