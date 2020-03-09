@@ -1,20 +1,12 @@
-# Project 2: Shiny App Development Version 2.0
-
-### [Homeless Island](https://chasel.shinyapps.io/homeless/)
+### [Homeless Support Guidance](https://chasel.shinyapps.io/homeless/)
 
 <img src="output/cover.png" width="1000">
 
-### Term: Spring 2020
+### Applied Data Science @ Columbia Project 2: [App Link](https://chasel.shinyapps.io/homeless/)
 
-+ Team #5
-+ **Homeless Island**: 
-	+ Jiadong Wu
-	+ Tianshu Zhang
-	+ Kaiqi Wang
-	+ Hongshan (Aria) Lin
-	+ Jacquelyn Blum
++ **Project summary**: 
 
-+ **Project summary**: For this project, we utilized many different datasets from NYC Open Data and Data.gov. We will present this application and its relevant analysis to the New York City Department of Homeless Services. The application is designed to be used by sheltered and unsheltered homeless New Yorkers. With the respect to human dignity and human rights in heart, we hope the homeless population will find this application useful as they attempt to navigate the unique challenges that face them in our city. We believe that our analysis will convince the NYC DHS that they need to purchase this application and make it available for public use. 
++ For this project, we utilized many different datasets from NYC Open Data and Data.gov. We will present this application and its relevant analysis to the New York City Department of Homeless Services. The application is designed to be used by sheltered and unsheltered homeless New Yorkers. With the respect to human dignity and human rights in heart, we hope the homeless population will find this application useful as they attempt to navigate the unique challenges that face them in our city. We believe that our analysis will convince the NYC DHS that they need to purchase this application and make it available for public use. 
 
 + The Map page is a resource guide map for the homeless population in New York City. It shows the location of resources: drop-in shelters, after-school programs, job centers, food stamp assistance and safe sex resources. There is also a functionality that shows the relative support rate per borough. 
 
