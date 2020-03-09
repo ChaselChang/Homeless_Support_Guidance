@@ -14,22 +14,6 @@
 
 + In our Report section, we utilized several datasets across different fields of interest from various open data web sources. The data was cleaned and prepared in R before being analyzed. The datasets includes: public facilities that are open to homeless population, homeless population distribution over time, health services for homeless, etc. As the datasets came from public resources, we believe the data to be as authentic and as accurate as possible. Interactive visualizations were made using shinyapp and plotly for R. 
 
-+ **Contribution statement**: 
-
-	+ All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
-
-	+ Jiadong took major responsibility in implementing the map tab and about tab, Kaiqi and Tianshu assisted him in data engineering and plotting;
-
-	+ Kaiqi took major responsibility in implementing the heat-map tab;
-
-	+ Hongshan(Aria) and Jacquelyn took major responsibility in implementing the report tab, Tianshu assisted them in UI implementations;
-
-	+ Tianshu took major responsibility in implementing the main UI structure, integrating and deploying all the works;
-
-	+ Jacquelyn added project summary.
-
-	+ All team members contributed greatly to this work.
-
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
 ```
