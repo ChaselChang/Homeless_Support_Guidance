@@ -6,11 +6,11 @@
 
 ### **Project summary**: 
 
-+ For this project, we utilized many different datasets from NYC Open Data and Data.gov. We will present this application and its relevant analysis to the New York City Department of Homeless Services. The application is designed to be used by sheltered and unsheltered homeless New Yorkers. With the respect to human dignity and human rights in heart, we hope the homeless population will find this application useful as they attempt to navigate the unique challenges that face them in our city. We believe that our analysis will convince the NYC DHS that they need to purchase this application and make it available for public use. 
++ For this project, we utilized datasets from NYC Open Data and Data.gov. The design of this project is to be presented to the New York City Department of Homeless Services. The application is to be used by sheltered and unsheltered homeless New Yorkers. With the respect to human dignity and human rights in heart, we hope the homeless population will find this application useful as they attempt to navigate the unique challenges that face them in our city.
 
 + The Map page is a resource guide map for the homeless population in New York City. It shows the location of resources: drop-in shelters, after-school programs, job centers, food stamp assistance and safe sex resources. There is also a functionality that shows the relative support rate per borough. 
 
-+ The Heatmap page is a heat map of homeless distribution across all five boroughs of New York City.
++ The Heatmap page is a heat map of homeless population distribution across all five boroughs of New York City.
 
 + In our Report section, we utilized several datasets across different fields of interest from various open data web sources. The data was cleaned and prepared in R before being analyzed. The datasets includes: public facilities that are open to homeless population, homeless population distribution over time, health services for homeless, etc. As the datasets came from public resources, we believe the data to be as authentic and as accurate as possible. Interactive visualizations were made using shinyapp and plotly for R. 
 
